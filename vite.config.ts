@@ -39,7 +39,7 @@ function portfolioHtml(): Plugin {
         : { renderBody, renderHead };
       return html
         .replace('%LANG%', c.site.lang)
-        .replace('<!--app-head-->', r.renderHead(c, { publicFileExists, date: today() }))
+        .replace('<!--app-head-->', r.renderHead(c, { publicFileExists, date: today(), dev: !!server }))
         .replace('<!--app-body-->', r.renderBody(c, { publicFileExists }));
     },
     generateBundle() {

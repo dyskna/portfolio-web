@@ -243,3 +243,11 @@ After the first deploy (and after connecting a domain):
    from your own profiles are the strongest signal that the page is yours.
 4. Check link previews with the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/);
    it also refreshes LinkedIn's cached preview after og.jpg changes.
+
+## Visits
+
+Cloudflare Web Analytics counts visits without cookies (so no consent banner). To turn it on: dashboard
+→ Analytics & Logs → **Web Analytics** → Add a site → `dyskna.pl` → choose the manual (JS snippet)
+setup and copy the `token` from the snippet into `site.analyticsToken` in `src/content.ts`, then
+`npm run deploy`. The page adds the beacon itself (built site only, never on the dev server). The
+numbers then show in the same Web Analytics view: visits, pages, countries, referrers (e.g. linkedin.com).

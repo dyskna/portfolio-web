@@ -2,26 +2,90 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Off course · Katarzyna Kardyś</title>
     <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0b0f16">
+    <meta name="color-scheme" content="dark">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/sedgwick-ave-display-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
     <style>
-      @font-face { font-family: 'Instrument Serif'; src: url(/fonts/instrument-serif-400-normal-latin.woff2) format('woff2'); font-display: swap; }
-      @font-face { font-family: 'Instrument Sans'; src: url(/fonts/instrument-sans-400-700-normal-latin.woff2) format('woff2'); font-weight: 400 700; font-display: swap; }
-      :root { color-scheme: light; }
-      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px; box-sizing: border-box;
-        background: #f2eee6 url(/lake-poster.jpg) center 62% / cover no-repeat; color: #121519; font: 1.0625rem/1.6 'Instrument Sans', system-ui, sans-serif; }
-      main { max-width: 30rem; padding: 32px; background: rgb(242 238 230 / 0.97); border: 1px solid rgb(18 21 25 / 0.14); }
-      h1 { margin: 0 0 8px; font: italic 400 3rem/1 'Instrument Serif', Georgia, serif; }
-      a { color: #b3361a; text-underline-offset: 3px; }
-      a:focus-visible { outline: 2px solid #121519; outline-offset: 3px; }
+      /* The site's own faces (see src/styles/fonts.css): the brush lettering and the small-caps voice. */
+      @font-face { font-family: 'Sedgwick Ave Display'; src: url(/fonts/sedgwick-ave-display-400-normal-latin.woff2) format('woff2'); font-display: swap; }
+      @font-face { font-family: 'Cabinet Grotesk'; src: url(/fonts/cabinet-grotesk-700-normal.woff2) format('woff2'); font-weight: 700; font-display: swap; }
+
+      :root {
+        --cream: #f5eadb;
+        --red: #d4372c;
+        --fade: rgb(6 9 14 / 0.62);
+      }
+
+      * { box-sizing: border-box; }
+
+      /* The lake from the opening shot, full bleed, darkened like the page's text fades. */
+      body {
+        margin: 0;
+        min-height: 100vh;
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        background:
+          linear-gradient(0deg, var(--fade) 0%, transparent 55%),
+          linear-gradient(rgb(6 9 14 / 0.38), rgb(6 9 14 / 0.38)),
+          #0f1d33 url(/lake-poster.jpg) center 62% / cover no-repeat;
+        color: var(--cream);
+        font-family: 'Cabinet Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        text-align: center;
+      }
+
+      @media (max-aspect-ratio: 4/5) {
+        body { background-image: linear-gradient(0deg, var(--fade) 0%, transparent 55%), linear-gradient(rgb(6 9 14 / 0.38), rgb(6 9 14 / 0.38)), url(/lake-poster-portrait.jpg); background-position: center, center, center 60%; }
+      }
+
+      main { display: grid; justify-items: center; gap: clamp(18px, 3vh, 28px); }
+
+      /* Lettered like the chapter words on the lake. */
+      h1 {
+        margin: 0;
+        font-family: 'Sedgwick Ave Display', 'Brush Script MT', cursive;
+        font-weight: 400;
+        font-size: clamp(4.5rem, 14vw, 12rem);
+        line-height: 0.85;
+        transform: rotate(-4deg);
+        text-shadow: 6px 8px 0 rgb(10 14 22 / 0.28);
+      }
+
+      p, a {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        line-height: 1.35;
+        text-shadow: 0 1px 12px rgb(6 9 14 / 0.7);
+      }
+
+      p { color: rgb(245 234 219 / 0.78); }
+
+      a {
+        display: inline-flex;
+        gap: 10px;
+        padding: 10px 2px;
+        border-bottom: 1px solid var(--cream);
+        color: var(--cream);
+        text-decoration: none;
+      }
+
+      a:hover { color: var(--red); border-color: var(--red); }
+      a:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
     </style>
   </head>
   <body>
     <main>
-      <h1>Off course.</h1>
-      <p>This page isn't on the map. <a href="/">Sail back to the start</a>.</p>
+      <h1>Off course</h1>
+      <p>This page isn’t on the map</p>
+      <a href="/">Sail back to the start <span aria-hidden="true">→</span></a>
     </main>
   </body>
 </html>

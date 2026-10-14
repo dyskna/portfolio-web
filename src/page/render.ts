@@ -324,7 +324,20 @@ ${webChapter(c, opts)}
 `;
 }
 
-export function renderHead(c: Content, opts: SeoOptions): string {
+export interface HeadOptions extends SeoOptions {
+  /** The dev server: no visit counting there. */
+  dev: boolean;
+}
+
+/** Cloudflare Web Analytics: one deferred script, no cookies. Only on the built site. */
+function analytics(c: Content, opts: HeadOptions): string {
+  const token = c.site.analyticsToken;
+  if (!token || opts.dev) return '';
+  return `
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${esc(JSON.stringify({ token }))}'></script>`;
+}
+
+export function renderHead(c: Content, opts: HeadOptions): string {
   const url = `${c.site.url}/`;
   const image = ogImageUrl(c);
   return `
@@ -350,5 +363,5 @@ export function renderHead(c: Content, opts: SeoOptions): string {
     <meta name="twitter:description" content="${esc(c.site.description)}">
     <meta name="twitter:image" content="${esc(image)}">
     <meta name="twitter:image:alt" content="${esc(c.site.imageAlt)}">
-    <script type="application/ld+json">${jsonLd(c, opts)}</script>`;
+    <script type="application/ld+json">${jsonLd(c, opts)}</script>${analytics(c, opts)}`;
 }

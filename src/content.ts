@@ -90,6 +90,11 @@ export const content = {
     ],
     /** Describes og.jpg for screen readers in link previews. */
     imageAlt: 'A sailboat by a wooden pier on a low-poly mountain lake, with the words “I like building good stuff” painted on the water.',
+    /**
+     * Cloudflare Web Analytics token (dashboard → Analytics & Logs → Web Analytics → the dyskna.pl
+     * site → its snippet's "token"). Visits are counted without cookies; empty turns it off.
+     */
+    analyticsToken: '',
   },
 
   hero: {
