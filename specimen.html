@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening screen · name options</title>
+<!-- Specimen only: open this file directly in a browser. Not part of the build.
+     Uses the site's own fonts and the still of the opening shot (the live 3D scene looks the same). -->
+<style>
+  @font-face { font-family: 'Sedgwick Ave Display'; src: url(public/fonts/sedgwick-ave-display-400-normal-latin.woff2) format('woff2'); }
+  @font-face { font-family: 'Sedgwick Ave Display'; src: url(public/fonts/sedgwick-ave-display-400-normal-latin-ext.woff2) format('woff2'); unicode-range: U+0100-024F; }
+  @font-face { font-family: 'Cabinet Grotesk'; src: url(public/fonts/cabinet-grotesk-500-normal.woff2) format('woff2'); font-weight: 500; }
+  @font-face { font-family: 'Cabinet Grotesk'; src: url(public/fonts/cabinet-grotesk-700-normal.woff2) format('woff2'); font-weight: 700; }
+  @font-face { font-family: 'Cabinet Grotesk'; src: url(public/fonts/cabinet-grotesk-800-normal.woff2) format('woff2'); font-weight: 800; }
+  :root { --cream: #f5eadb; --ink: #14171c; --red: #d4372c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #080b10; color: var(--cream); font: 15px/1.5 'Cabinet Grotesk', system-ui, sans-serif; }
+  header { padding: 40px 48px 0; max-width: 80ch; }
+  header h1 { margin: 0; font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  header p { margin: 10px 0 0; opacity: .75; }
+  .frame { position: relative; margin: 28px 48px 8px; aspect-ratio: 16 / 9; overflow: hidden;
+    background: #0f1d33 url(public/lake-poster.jpg) center 62% / cover; container-type: inline-size; }
+  .caption { margin: 0 48px 36px; font-size: .78rem; letter-spacing: .06em; }
+  .caption b { letter-spacing: .14em; text-transform: uppercase; margin-right: 8px; }
+  .caption span { opacity: .7; }
+  /* The site's top bar */
+  .chrome { position: absolute; inset: 0 0 auto; height: 6.5cqw; display: flex; align-items: center; gap: 3cqw; padding: 0 3.4cqw;
+    background: linear-gradient(180deg, rgb(8 11 16 / .84), rgb(8 11 16 / .6) 55%, rgb(8 11 16 / 0));
+    font-size: .9cqw; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+  .chrome .on { color: var(--cream); }
+  .chrome .name { color: var(--cream); margin-right: 2cqw; }
+  .caps { font-size: 1cqw; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+  /* A: painted on the lake */
+  .a .role { position: absolute; left: 3.4cqw; top: 9.5cqw; color: var(--ink); text-shadow: 0 0 10px rgb(245 234 219 / .7); }
+  .a .role p { margin: .4cqw 0 0; font-size: 1.7cqw; font-weight: 500; letter-spacing: 0; text-transform: none; line-height: 1.3; }
+  .a .painted { position: absolute; left: 50%; top: 56%; transform: translate(-50%, -50%) rotate(-4deg); white-space: nowrap; text-align: center;
+    font-family: 'Sedgwick Ave Display', cursive; font-size: 9.5cqw; line-height: .9; color: var(--cream); text-shadow: .5cqw .7cqw 0 rgb(10 14 22 / .3); }
+
+  /* B: editorial grotesk on the haze */
+  .b::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(245 234 219 / .72) 0%, rgb(245 234 219 / .5) 32%, rgb(245 234 219 / 0) 62%); }
+  .b .block { position: absolute; left: 3.4cqw; top: 13cqw; color: var(--ink); }
+  .b h2 { margin: 0; font-weight: 800; font-size: 8.6cqw; line-height: .9; letter-spacing: -.035em; }
+  .b h2 span { display: block; }
+  .b .meta { margin-bottom: 1.4cqw; color: rgb(20 23 28 / .7); }
+  .b p.t { margin: 2cqw 0 0; font-size: 1.7cqw; font-weight: 500; line-height: 1.3; }
+
+  /* C: editorial grotesk in cream, low over the water */
+  .c::before { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(6 9 14 / .7) 0%, rgb(6 9 14 / .35) 30%, transparent 55%); }
+  .c .block { position: absolute; left: 3.4cqw; bottom: 4.5cqw; color: var(--cream); text-shadow: 0 1px 12px rgb(6 9 14 / .55); }
+  .c h2 { margin: 0; font-weight: 800; font-size: 9.6cqw; line-height: .88; letter-spacing: -.035em; }
+  .c .meta { margin-bottom: 1.2cqw; color: rgb(245 234 219 / .8); }
+  .c .meta i { font-style: normal; margin: 0 1cqw; color: var(--red); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Opening screen — three treatments for your name</h1>
+  <p>Buttons and the scroll line are gone in all three. Same fonts as the site: Sedgwick Ave Display (brush) and Cabinet Grotesk. The background is the still of the real opening shot.</p>
+</header>
+
+<section class="frame a">
+  <div class="chrome"><span class="name">Katarzyna Kardyś</span><span class="on">00 Pier</span><span>01 Sailing</span><span>02 Chery</span><span>03 Escape</span><span>04 Sumo</span><span>05 Thesis</span><span>06 About</span><span>07 Harbour</span></div>
+  <div class="role caps">Portfolio 2026<p>Game designer and programmer.<br>Unity and Unreal Engine 5.</p></div>
+  <div class="painted">Katarzyna Kardyś</div>
+</section>
+<p class="caption"><b>A · Painted on the lake</b><span>Your name in cream brush lettering standing on the water behind the boat, exactly like every chapter word after it. The role sits quietly top left. The white haze goes. (In the live site the boat and sail pass in front of it.)</span></p>
+
+<section class="frame b">
+  <div class="chrome"><span class="name">Katarzyna Kardyś</span><span class="on">00 Pier</span><span>01 Sailing</span><span>02 Chery</span><span>03 Escape</span><span>04 Sumo</span><span>05 Thesis</span><span>06 About</span><span>07 Harbour</span></div>
+  <div class="block"><div class="meta caps">Portfolio 2026</div><h2><span>Katarzyna</span><span>Kardyś</span></h2><p class="t">Game designer and programmer.<br>Unity and Unreal Engine 5.</p></div>
+</section>
+<p class="caption"><b>B · Editorial grotesk on the haze</b><span>Your name in Cabinet Grotesk Extra Bold, tight and large, in ink on the white haze you liked; same voice as the project titles. Brush stays only for words on the water.</span></p>
+
+<section class="frame c">
+  <div class="chrome"><span class="name">Katarzyna Kardyś</span><span class="on">00 Pier</span><span>01 Sailing</span><span>02 Chery</span><span>03 Escape</span><span>04 Sumo</span><span>05 Thesis</span><span>06 About</span><span>07 Harbour</span></div>
+  <div class="block"><div class="meta caps">Game designer and programmer<i>/</i>Unity · Unreal Engine 5</div><h2>Katarzyna Kardyś</h2></div>
+</section>
+<p class="caption"><b>C · Editorial grotesk, low over the water</b><span>Same grotesk in cream, one line across the bottom over a soft dark fade, like a film title card. The sky stays open; no white haze.</span></p>
+</body>
+</html>

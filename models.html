@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podgląd modeli</title>
+<!-- Dev-only preview of the boat and village models (npm run dev → /models.html). Not part of the build. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0f16; color: #f5eadb; font: 13px/1.4 system-ui, sans-serif; }
+  canvas { display: block; width: 100%; height: 100%; }
+  .bar { position: fixed; left: 16px; top: 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+  button { padding: 9px 12px; border: 1px solid rgb(245 234 219 / .5); background: rgb(11 15 22 / .7); color: inherit; font: 600 11px/1 system-ui; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+  button[aria-pressed='true'] { background: #f5eadb; color: #14171c; }
+  .note { position: fixed; left: 16px; bottom: 16px; max-width: 46ch; opacity: .8; }
+</style>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div class="bar">
+  <button data-view="boat">Łódka</button>
+  <button data-view="cabin">Chatka i pomost</button>
+  <button data-view="harbour">Port</button>
+  <button id="dusk">Zmierzch</button>
+</div>
+<p class="note">Przeciągnij, żeby obrócić; kółko przybliża.</p>
+<script type="module" src="/src/specimen/models.ts"></script>
+</body>
+</html>

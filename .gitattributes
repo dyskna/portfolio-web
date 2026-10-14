@@ -1,0 +1,8 @@
+# Keep line endings as they are in the files (LF), whatever core.autocrlf says.
+* text=auto eol=lf
+*.mp4 binary
+*.webm binary
+*.jpg binary
+*.png binary
+*.woff2 binary
+*.glb binary

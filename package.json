@@ -1,0 +1,26 @@
+{
+  "name": "katarzyna-kardys-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "node --test \"src/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "deploy": "npm run build && npx wrangler deploy && npm run indexnow",
+    "indexnow": "node scripts/indexnow.ts",
+    "deploy:www": "npx wrangler deploy -c redirect/wrangler.jsonc",
+    "deploy:preview": "npm run build && npx wrangler versions upload"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/three": "^0.186.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}

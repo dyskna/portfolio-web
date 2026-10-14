@@ -1,0 +1,11 @@
+// www.dyskna.pl: a one-line Worker that redirects to the bare domain (see worker.ts).
+// Deploy with `npm run deploy:www`; wrangler attaches the custom domain and creates its DNS record
+// and certificate in the dyskna.pl zone.
+{
+  "name": "dyskna-www-redirect",
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "www.dyskna.pl", "custom_domain": true }]
+}
